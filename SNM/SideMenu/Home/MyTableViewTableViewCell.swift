@@ -191,19 +191,23 @@ class MyTableViewTableViewCell: UITableViewCell,UICollectionViewDataSource,UICol
         }
     if collectionView.tag == 1 {
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "VideoPlayerVC") as! VideoPlayerViewController
+        
        
         let video = dataArray1[indexPath.row]
         let image_url1 = (video as AnyObject).value(forKey: "linkUrl") as! String
-        
-        let videoURL = URL(string: image_url1)
-        let player = AVPlayer(url: videoURL!)
-        
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        
-        UIApplication.topViewController()?.present(playerViewController, animated:true, completion: {
-            player.play()
-        })
+        vc.videoIdentifier = String(describing: image_url1.components(separatedBy: "?v=")[1])
+        UIApplication.topViewController()?.present(vc, animated: true)
+//        let videoURL = URL(string: image_url1)
+//        let player = AVPlayer(url: videoURL!)
+//
+//        let playerViewController = AVPlayerViewController()
+//        playerViewController.player = player
+//
+//        UIApplication.topViewController()?.present(playerViewController, animated:true, completion: {
+//            player.play()
+//        })
         
     } else if collectionView.tag == 2 {
         

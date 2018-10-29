@@ -24,11 +24,23 @@ class VideoPlayerViewController: UIViewController{
         // Do any additional setup after loading the view.
     }
     
+    
     @IBAction func cancelBtn(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-        
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil
+        )
     }
+    
+//    @IBAction func cancelBtn(_ sender: Any) {
+//        //navigationController?.popViewController(animated: true)
+//
+//        dismiss(animated: true, completion: nil)
+//    }
+//
+//    @IBAction func cancelBtn(_ sender: Any) {
+//        //navigationController?.popViewController(animated: true)
+//
+//        dismiss(animated: true, completion: nil)
+//    }
 
    
 }

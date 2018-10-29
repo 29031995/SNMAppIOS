@@ -44,7 +44,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="VdY-rs-ykD">
-                                <rect key="frame" x="79" y="104" width="216" height="102"/>
+                                <rect key="frame" x="79.666666666666686" y="104" width="216" height="102"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="216" id="5vK-qm-E3R"/>
                                     <constraint firstAttribute="height" constant="102" id="umJ-g1-sNT"/>
@@ -94,7 +94,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l79-Yv-dSl">
-                                <rect key="frame" x="177" y="413" width="20" height="17"/>
+                                <rect key="frame" x="177.66666666666666" y="413" width="20" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fb" translatesAutoresizingMaskIntoConstraints="NO" id="YIV-Sc-6Ln">
-                                <rect key="frame" x="97" y="443" width="25" height="21"/>
+                                <rect key="frame" x="97.333333333333329" y="443" width="25" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="3EZ-QC-094"/>
                                     <constraint firstAttribute="height" constant="21" id="3bk-Ar-62q"/>
@@ -129,7 +129,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gmail" translatesAutoresizingMaskIntoConstraints="NO" id="3a3-V2-UQF">
-                                <rect key="frame" x="254" y="446" width="23" height="14"/>
+                                <rect key="frame" x="254.33333333333337" y="446" width="23" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="23" id="d7N-vI-sSx"/>
                                     <constraint firstAttribute="height" constant="14" id="r1y-2h-f4u"/>
