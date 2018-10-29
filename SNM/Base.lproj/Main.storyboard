@@ -287,15 +287,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyTableViewTableViewCell" rowHeight="156" id="wOK-n3-kbQ" customClass="MyTableViewTableViewCell" customModule="SNM" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyTableViewTableViewCell" rowHeight="156" id="wOK-n3-kbQ" customClass="MyTableViewTableViewCell" customModule="SNM" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="156"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wOK-n3-kbQ" id="fBt-qe-E58">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="155.66666666666666"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="155.66666666666666"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pGb-28-5FO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="139"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="139"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JdW-Jh-Qn8">
@@ -349,7 +349,6 @@
                                                             <connections>
                                                                 <outlet property="imageView" destination="JaN-FO-ZCr" id="byf-ZE-aIV"/>
                                                                 <outlet property="lbl1" destination="eUI-WQ-bqz" id="fKo-lN-uds"/>
-                                                                <segue destination="xB9-6c-qke" kind="push" identifier="Camera" customClass="SWRevealViewControllerSeguePushController" id="Arf-PF-ORo"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -387,7 +386,7 @@
         <!--Camera View Controller-->
         <scene sceneID="ND3-5l-vfe">
             <objects>
-                <viewController id="xB9-6c-qke" customClass="CameraViewController" customModule="SNM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CameraViewController" id="xB9-6c-qke" customClass="CameraViewController" customModule="SNM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zzR-Pe-IEQ"/>
                         <viewControllerLayoutGuide type="bottom" id="hYw-VK-IU1"/>
@@ -1057,11 +1056,16 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hWg-ud-wDq">
+                                <rect key="frame" x="177" y="396" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kiG-08-IXa" firstAttribute="top" secondItem="c7S-JQ-ogz" secondAttribute="top" id="Gae-SK-htv"/>
+                            <constraint firstItem="hWg-ud-wDq" firstAttribute="centerY" secondItem="c7S-JQ-ogz" secondAttribute="centerY" id="ZK5-k5-fWA"/>
                             <constraint firstItem="kiG-08-IXa" firstAttribute="trailing" secondItem="tj6-6A-o5e" secondAttribute="trailing" id="aZo-mH-UP4"/>
+                            <constraint firstItem="hWg-ud-wDq" firstAttribute="centerX" secondItem="c7S-JQ-ogz" secondAttribute="centerX" id="ci1-Ps-KXi"/>
                             <constraint firstAttribute="trailing" secondItem="kiG-08-IXa" secondAttribute="trailing" id="cvd-va-QhK"/>
                             <constraint firstAttribute="bottom" secondItem="tj6-6A-o5e" secondAttribute="bottom" id="ocx-oi-PgD"/>
                             <constraint firstItem="kiG-08-IXa" firstAttribute="leading" secondItem="c7S-JQ-ogz" secondAttribute="leading" id="oiw-cg-j2V"/>
@@ -1072,6 +1076,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tar-np-A9V"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hWg-ud-wDq" id="wIf-FY-o7A"/>
                         <outlet property="menuBtn" destination="TwP-rn-uCM" id="KMD-cn-wwj"/>
                         <outlet property="webView" destination="tj6-6A-o5e" id="3of-WR-Ggw"/>
                     </connections>

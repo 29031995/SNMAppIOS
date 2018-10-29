@@ -193,12 +193,12 @@ class MyTableViewTableViewCell: UITableViewCell,UICollectionViewDataSource,UICol
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "VideoPlayerVC") as! VideoPlayerViewController
-        
        
         let video = dataArray1[indexPath.row]
         let image_url1 = (video as AnyObject).value(forKey: "linkUrl") as! String
         vc.videoIdentifier = String(describing: image_url1.components(separatedBy: "?v=")[1])
         UIApplication.topViewController()?.present(vc, animated: true)
+        
 //        let videoURL = URL(string: image_url1)
 //        let player = AVPlayer(url: videoURL!)
 //
@@ -214,6 +214,11 @@ class MyTableViewTableViewCell: UITableViewCell,UICollectionViewDataSource,UICol
                 let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TableviewTrendingViewController") as? TableviewTrendingViewController
                UIApplication.topViewController()?.navigationController?.pushViewController(vc!, animated: true)
         
+        }
+        
+    else if collectionView.tag == 3 {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
+        UIApplication.topViewController()?.navigationController?.pushViewController(vc!, animated: true)
         }
 }
 }

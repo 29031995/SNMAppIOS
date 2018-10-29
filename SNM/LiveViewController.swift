@@ -11,15 +11,14 @@ import WebKit
 import SafariServices
 
 
-class LiveViewController: SNMUIViewController,WKNavigationDelegate, WKUIDelegate {
+class LiveViewController: SNMUIViewController,WKNavigationDelegate, WKUIDelegate , UIWebViewDelegate{
     
-//    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-//
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     @IBOutlet weak var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //activityIndicator.startAnimating()
         
         let url = URL(string: "http://live.nirankari.org/")
         webView.uiDelegate = self
@@ -27,23 +26,13 @@ class LiveViewController: SNMUIViewController,WKNavigationDelegate, WKUIDelegate
         webView.load(URLRequest(url: url!))
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        showActivityIndicator(show: true)
-//    }
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        activityIndicator.startAnimating()
+    }
     
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        activityIndicator.stopAnimating()
+    }
     
-//    func showActivityIndicator(show: Bool) {
-//        if show {
-//            activityIndicator.isHidden = false
-//            activityIndicator.startAnimating()
-//        } else {
-//            activityIndicator.stopAnimating()
-//        }
-//    }
-//    
-//    func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
-//        showActivityIndicator(show: false)
-//    }
     
 }
