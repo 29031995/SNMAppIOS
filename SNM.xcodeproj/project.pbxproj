@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2398BCFB21870DA800860527 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398BCFA21870DA800860527 /* LiveViewController.swift */; };
+		2398BCFD21870DD200860527 /* SNMUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398BCFC21870DD200860527 /* SNMUIViewController.swift */; };
+		2398BCFF21870FF400860527 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2398BCFE21870FF400860527 /* WebKit.framework */; };
+		2398BD012187116900860527 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398BD002187116900860527 /* CameraViewController.swift */; };
+		2398BD03218715AB00860527 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2398BD02218715AB00860527 /* VideoPlayerViewController.swift */; };
 		4D719D3F218355FE00E722BE /* ItemsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D719D3E218355FE00E722BE /* ItemsApi.swift */; };
 		603BED7D79EA75890B7F4B89 /* Pods_SNM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29EB5925DA145DB4132314CC /* Pods_SNM.framework */; };
 		C30049B121439ECC0027F8FE /* MusicPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30049B021439ECC0027F8FE /* MusicPlayerVC.swift */; };
@@ -70,6 +75,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2398BCFA21870DA800860527 /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		2398BCFC21870DD200860527 /* SNMUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNMUIViewController.swift; sourceTree = "<group>"; };
+		2398BCFE21870FF400860527 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		2398BD002187116900860527 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		2398BD02218715AB00860527 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
 		29EB5925DA145DB4132314CC /* Pods_SNM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SNM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CD86D2936358661785A639A /* Pods_SNMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SNMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D551535D4183EAD12A380D3 /* Pods-SNM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNM.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SNM/Pods-SNM.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2398BCFF21870FF400860527 /* WebKit.framework in Frameworks */,
 				603BED7D79EA75890B7F4B89 /* Pods_SNM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +174,7 @@
 		2F1F8FC832F851CC0180B680 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2398BCFE21870FF400860527 /* WebKit.framework */,
 				E2B19B8E2175C0FA00B016BA /* Kingfisher.framework */,
 				C3CD7D3421410A0700C20185 /* FBSDKLoginKit.framework */,
 				C3CD7D3221410A0100C20185 /* FBSDKCoreKit.framework */,
@@ -263,6 +275,10 @@
 				C33B4CBD2147C27A00383596 /* kTextFiledPlaceHolder.swift */,
 				C3CD7D03214106B300C20185 /* ViewController.swift */,
 				C3CD7D05214106B300C20185 /* Main.storyboard */,
+				2398BCFA21870DA800860527 /* LiveViewController.swift */,
+				2398BCFC21870DD200860527 /* SNMUIViewController.swift */,
+				2398BD002187116900860527 /* CameraViewController.swift */,
+				2398BD02218715AB00860527 /* VideoPlayerViewController.swift */,
 				C33B4CBF2147D3E100383596 /* ProfileViewController.swift */,
 				E2377DAE217B33DC008E6251 /* musicimg.jpeg */,
 				E22BDF1C217D893C00F1EFA1 /* Voice.jpg */,
@@ -543,7 +559,9 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/XCDYouTubeKit/XCDYouTubeKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -559,7 +577,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCDYouTubeKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -574,6 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C36D381121463FFD0022FBB7 /* FSPageViewLayout.swift in Sources */,
+				2398BD03218715AB00860527 /* VideoPlayerViewController.swift in Sources */,
 				E22D81642174A8C70016E658 /* ApiTrending.swift in Sources */,
 				C33B4CBE2147C27A00383596 /* kTextFiledPlaceHolder.swift in Sources */,
 				C3CD7D04214106B300C20185 /* ViewController.swift in Sources */,
@@ -583,6 +604,8 @@
 				C36D381021463FFD0022FBB7 /* FSPagerViewCell.swift in Sources */,
 				C3CD7D02214106B300C20185 /* AppDelegate.swift in Sources */,
 				C36D381321463FFD0022FBB7 /* FSPageViewTransformer.swift in Sources */,
+				2398BCFB21870DA800860527 /* LiveViewController.swift in Sources */,
+				2398BD012187116900860527 /* CameraViewController.swift in Sources */,
 				C36D380E21463FFD0022FBB7 /* FSPagerView.swift in Sources */,
 				C3F428A721410DCE00D1AA2E /* LoginVC.swift in Sources */,
 				E25BF4C02175DBA2003B8AB3 /* trendingMusicCollectionViewCell.swift in Sources */,
@@ -603,6 +626,7 @@
 				C33B4CC02147D3E200383596 /* ProfileViewController.swift in Sources */,
 				C3F428B5214125EE00D1AA2E /* SideMenuVC.swift in Sources */,
 				C3F428A921410E0200D1AA2E /* Helper Class.swift in Sources */,
+				2398BCFD21870DD200860527 /* SNMUIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,10 +806,7 @@
 				DEVELOPMENT_TEAM = 2KAL3NND99;
 				INFOPLIST_FILE = SNM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.SNM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4dc1d608-932b-45df-b935-16afec365358";
@@ -808,10 +829,7 @@
 				DEVELOPMENT_TEAM = 2KAL3NND99;
 				INFOPLIST_FILE = SNM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.SNM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4dc1d608-932b-45df-b935-16afec365358";
@@ -830,11 +848,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SNMTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.SNM.SNMTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -851,11 +865,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SNMTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.SNM.SNMTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -871,11 +881,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SNMUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.SNM.SNMUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -891,11 +897,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SNMUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.distribution.SNM.SNMUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

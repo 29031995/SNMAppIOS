@@ -22,8 +22,6 @@ import FBSDKCoreKit.FBSDKAppEvents
  Represents a parameter name of the Facebook Analytics application event.
  */
 public enum AppEventParameterName: Hashable, RawRepresentable, ExpressibleByStringLiteral, CustomStringConvertible {
-  /// Data for the one or more pieces of content being logged about.
-  case content
   /// Identifier for the specific piece of content.
   case contentId
   /// Type of the content, e.g. "music"/"photo"/"video".
@@ -72,7 +70,6 @@ public enum AppEventParameterName: Hashable, RawRepresentable, ExpressibleByStri
   /// The corresponding `String` value.
   public var rawValue: String {
     switch self {
-    case .content: return FBSDKAppEventParameterNameContent
     case .contentId: return FBSDKAppEventParameterNameContentID
     case .contentType: return FBSDKAppEventParameterNameContentType
     case .currency: return FBSDKAppEventParameterNameCurrency
