@@ -1,0 +1,6 @@
+framework module Pods_SNMTests {
+  umbrella header "Pods-SNMTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
