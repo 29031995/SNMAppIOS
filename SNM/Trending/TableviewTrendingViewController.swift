@@ -26,7 +26,7 @@ class TableviewTrendingViewController: UIViewController,UITableViewDelegate,UITa
     @IBOutlet weak var collView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
- objApiSync.delegeteSyncApi = self
+        objApiSync.delegeteSyncApi = self
         objApiSync.callApi()
         // Do any additional setup after loading the view.
     }

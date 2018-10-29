@@ -174,6 +174,13 @@ class MyTableViewTableViewCell: UITableViewCell,UICollectionViewDataSource,UICol
            // let vc  = UIStoryboard.in
             vc?.musicVideoURL = mediaUrl
              vc?.musicThumbnail = image_url1
+            var imageArray = [String]()
+            for i in 0...dataArray.count - 1 {
+                let Url = dataArray[i]
+                let imageUrl = (Url as AnyObject).value(forKey: "imgUrl") as! String
+                imageArray.append(imageUrl)
+            }
+            vc?.thumbnailArray = imageArray
            // NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "food")
             UserDefaults.standard.set(mediaUrl, forKey: "mediaUrl")
             UserDefaults.standard.set(image_url1, forKey: "thumUrl")
@@ -189,7 +196,6 @@ class MyTableViewTableViewCell: UITableViewCell,UICollectionViewDataSource,UICol
         let image_url1 = (video as AnyObject).value(forKey: "linkUrl") as! String
         
         let videoURL = URL(string: image_url1)
-        
         let player = AVPlayer(url: videoURL!)
         
         let playerViewController = AVPlayerViewController()
