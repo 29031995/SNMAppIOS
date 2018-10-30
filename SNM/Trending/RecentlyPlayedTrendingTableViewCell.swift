@@ -8,10 +8,12 @@
 
 import UIKit
 import AVFoundation
+import AVKit
 
 class RecentlyPlayedTrendingTableViewCell: UITableViewCell {
 var playerState = "play"
-    var player: AVAudioPlayer?
+    var avPlayer: AVPlayer!
+    var isPaused: Bool!
     @IBOutlet weak var musicButton: UIButton!
     @IBOutlet weak var pauseBtn: UIButton!
     @IBOutlet weak var imgView: UIImageView!
@@ -28,17 +30,19 @@ var playerState = "play"
     }
 
     @IBAction func btn_Action(_ sender: UIButton) {
-        if playerState == "play"
-        {player?.pause()
-            sender.setImage(UIImage(named: "pause"), for: .normal)
-            playerState = "pause"
-        }
-            
-        else{
-            player?.play()
-            playerState = "play"
-            sender.setImage(UIImage(named: "pla"), for: .normal)
+        if avPlayer.timeControlStatus == .playing  {
+            musicButton.setImage(UIImage(named:"pla"), for: .normal)
+            avPlayer.pause()
+            isPaused = true
+        } else {
+            musicButton.setImage(UIImage(named:"pause"), for: .normal)
+            avPlayer.play()
+            isPaused = false
         }
     }
     }
-
+//extension AVPlayer {
+//    var isPlaying: Bool {
+//        return rate != 0 && error == nil
+//    }
+//}
