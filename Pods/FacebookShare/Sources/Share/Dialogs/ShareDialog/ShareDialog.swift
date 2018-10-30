@@ -21,7 +21,7 @@ import FBSDKShareKit
 /// A dialog for sharing content on Facebook.
 public final class ShareDialog<Content: ContentProtocol>: ContentSharingProtocol, ContentSharingDialogProtocol {
   private let sdkSharer: FBSDKShareDialog
-  private var sdkShareDelegate: SDKSharingDelegateBridge<Content>?
+  private weak var sdkShareDelegate: SDKSharingDelegateBridge<Content>?
 
   /**
    A `UIViewController` to present the dialog from.

@@ -174,6 +174,13 @@ class MyTableViewTableViewCell: UITableViewCell,UICollectionViewDataSource,UICol
            // let vc  = UIStoryboard.in
             vc?.musicVideoURL = mediaUrl
              vc?.musicThumbnail = image_url1
+            var imageArray = [String]()
+            for i in 0...dataArray.count - 1 {
+                let Url = dataArray[i]
+                let imageUrl = (Url as AnyObject).value(forKey: "imgUrl") as! String
+                imageArray.append(imageUrl)
+            }
+            vc?.thumbnailArray = imageArray
            // NSUserDefaults.standardUserDefaults().setObject(newValue, forKey: "food")
             UserDefaults.standard.set(mediaUrl, forKey: "mediaUrl")
             UserDefaults.standard.set(image_url1, forKey: "thumUrl")
@@ -184,26 +191,34 @@ class MyTableViewTableViewCell: UITableViewCell,UICollectionViewDataSource,UICol
         }
     if collectionView.tag == 1 {
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "VideoPlayerVC") as! VideoPlayerViewController
        
         let video = dataArray1[indexPath.row]
         let image_url1 = (video as AnyObject).value(forKey: "linkUrl") as! String
+        vc.videoIdentifier = String(describing: image_url1.components(separatedBy: "?v=")[1])
+        UIApplication.topViewController()?.present(vc, animated: true)
         
-        let videoURL = URL(string: image_url1)
-        
-        let player = AVPlayer(url: videoURL!)
-        
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        
-        UIApplication.topViewController()?.present(playerViewController, animated:true, completion: {
-            player.play()
-        })
+//        let videoURL = URL(string: image_url1)
+//        let player = AVPlayer(url: videoURL!)
+//
+//        let playerViewController = AVPlayerViewController()
+//        playerViewController.player = player
+//
+//        UIApplication.topViewController()?.present(playerViewController, animated:true, completion: {
+//            player.play()
+//        })
         
     } else if collectionView.tag == 2 {
         
                 let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "TableviewTrendingViewController") as? TableviewTrendingViewController
                UIApplication.topViewController()?.navigationController?.pushViewController(vc!, animated: true)
         
+        }
+        
+    else if collectionView.tag == 3 {
+        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CameraViewController") as? CameraViewController
+        UIApplication.topViewController()?.navigationController?.pushViewController(vc!, animated: true)
         }
 }
 }

@@ -40,21 +40,7 @@ class LoginVC: UIViewController ,GIDSignInUIDelegate,GIDSignInDelegate,UITextFie
         userNames.text = "nis2sewatest1"
         password.text = "niswelcome1"
     }
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @IBAction func loginActin_Btn(_ sender: UIButton)
         {
             

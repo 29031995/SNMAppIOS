@@ -9,19 +9,22 @@
 import UIKit
 import AVFoundation
 import AVKit
+import AlamofireImage
+
 
 
 class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegate,syncApi{
-    func didFinishItemsApi(data: NSMutableArray) {
-        
-    }
+ 
     
 
     
     @IBOutlet weak var playButton: UIButton!
     var musicThumbnail = String()
     var musicVideoURL = String()
+    var thumbnailArray = [String]()
 
+    @IBOutlet weak var previousBtn: UIButton!
+    @IBOutlet weak var nextbtn: UIButton!
     
     @IBOutlet weak var totalDurationLbl: UILabel!
     @IBOutlet weak var currentTimeLbl: UILabel!
@@ -43,10 +46,25 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
     }
     
     func didFinishApi(data:NSMutableArray){
+        AppDelegate.appDels.removeHUD()
         self.dataArray = data
+        for i in 0...dataArray.count - 1 {
+            let img = dataArray[i]
+           // let tumbNail = (img as AnyObject).value(forKey: "imgUrl") as! String
+            let mediaUrl = (img as AnyObject).value(forKey: "mediaUrl") as! String
+            playList.add(mediaUrl)
+            //let url = URL(string: tumbNail)
+        }
         self.pagerView.delegate = self
         self.pagerView.dataSource = self
         self.pagerView.reloadData()
+        if indexs == 0 {
+            previousBtn.isEnabled = false
+        }
+        else if indexs == dataArray.count - 1 {
+            nextbtn.isEnabled = false
+        }
+        
     }
    
  
@@ -81,6 +99,7 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
         }
         playerSlider.setThumbImage(UIImage(named: "barTumbler.png"), for: UIControlState.normal)
         objApiSync.delegeteSyncApi = self
+        AppDelegate.appDels.showHUD()
         objApiSync.callApi()
         self.pagerView.transformer = FSPagerViewTransformer(type:.linear)
         let transform = CGAffineTransform(scaleX: 0.8, y: 0.95)
@@ -133,11 +152,13 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
     
     
     func nextTrack(){
+        
         if(index < playList.count-1){
             index = index + 1
             isPaused = false
             playButton.setImage(UIImage(named:"pause"), for: .normal)
             self.play(url: URL(string:(playList[self.index] as! String))!)
+            setupTimer()
             
             
         }else{
@@ -145,6 +166,7 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
             isPaused = false
             playButton.setImage(UIImage(named:"pause"), for: .normal)
             self.play(url: URL(string:(playList[self.index] as! String))!)
+            setupTimer()
         }
     }
     
@@ -154,6 +176,7 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
             isPaused = false
             playButton.setImage(UIImage(named:"pause"), for: .normal)
             self.play(url: URL(string:(playList[self.index] as! String))!)
+            setupTimer()
             
         }
     }
@@ -181,6 +204,18 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
     
     //MARK: Play audio
     func play(url:URL) {
+        if indexs == 0 {
+            previousBtn.isEnabled = false
+        }
+        else {
+            previousBtn.isEnabled = true
+        }
+        if indexs == dataArray.count - 1 {
+            nextbtn.isEnabled = false
+        }
+        else {
+            nextbtn.isEnabled = true
+        }
         self.avPlayer = AVPlayer(playerItem: AVPlayerItem(url: url))
         if #available(iOS 10.0, *) {
             self.avPlayer?.automaticallyWaitsToMinimizeStalling = false
@@ -197,7 +232,9 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
          //let imgUrl = dataArray[indexPath.row]
         
-        let tumbNail = UserDefaults.standard.value(forKey: "thumUrl") as! String
+       // let tumbNail = thumbnailArray[pagerView.currentIndex]
+        let img = dataArray[index]
+        let tumbNail = (img as AnyObject).value(forKey: "imgUrl") as! String
         let url = URL(string: tumbNail)
         let placeholderImage = UIImage(named: "musicimg.jpeg")!
         cell.imageView?.af_setImage(withURL: url!, placeholderImage: placeholderImage)
@@ -216,13 +253,52 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
         self.indexs = index
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)
-       
+        self.avPlayer.pause()
+        self.avPlayer = nil
+        self.timer?.invalidate()
+        self.playerSlider.setValue(0, animated: true)
+        
+        isPaused = false
+        playButton.setImage(UIImage(named:"pause"), for: .normal)
+        self.play(url: URL(string:(playList[self.index] as! String))!)
+        setupTimer()
     }
+    
+    
+//    func pagerViewDidScroll(_ pagerView: FSPagerView) {
+//        self.avPlayer.pause()
+//        self.avPlayer = nil
+//        self.timer?.invalidate()
+//
+//        isPaused = false
+//        playButton.setImage(UIImage(named:"pause"), for: .normal)
+//        self.play(url: URL(string:(playList[pagerView.currentIndex] as! String))!)
+//        setupTimer()
+//    }
+    
+    func pagerViewDidEndDecelerating(_ pagerView: FSPagerView) {
+                self.avPlayer.pause()
+                self.avPlayer = nil
+                self.timer?.invalidate()
+        self.playerSlider.setValue(0, animated: true)
+
+                isPaused = false
+                playButton.setImage(UIImage(named:"pause"), for: .normal)
+                self.play(url: URL(string:(playList[pagerView.currentIndex] as! String))!)
+                setupTimer()
+    }
+    
+    
     
     @IBAction func prevSongPlay(_ sender: UIButton) {
         indexs = indexs - 1
         pagerView.deselectItem(at: indexs, animated: true)
         pagerView.scrollToItem(at: indexs, animated: true)
+
+        timer?.invalidate()
+        self.playerSlider.setValue(0, animated: true)
+
+        prevTrack()
        
     }
     
@@ -230,7 +306,12 @@ class MusicPlayerVC: UIViewController, FSPagerViewDataSource, FSPagerViewDelegat
         indexs = indexs + 1
         pagerView.deselectItem(at: indexs, animated: true)
         pagerView.scrollToItem(at: indexs, animated: true)
-    avPlayer = nil
+
+        timer?.invalidate()
+        self.playerSlider.setValue(0, animated: true)
+
+        nextTrack()
+ //   avPlayer = nil
     }
     
     @IBAction func playSongAction(_ sender: UIButton) {

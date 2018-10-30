@@ -11,7 +11,9 @@ pod 'FacebookShare'
 pod 'GoogleSignIn'
 pod 'Alamofire'
 pod 'MBProgressHUD'
-pod 'AlamofireImage', '~> 3.4'
+pod 'AlamofireImage'
+pod 'XCDYouTubeKit'
+pod 'Kingfisher'
 
   # Pods for SNM
 
